@@ -21,12 +21,14 @@ function MiscCards() {
                     <div className='m-2 border-b border-gray-200'><i className="fa-solid fa-temperature-half"></i>
                                 <span className='pl-2'>High/Low</span>
                     </div>
+              
                 <div className=' m-2 border-b border-gray-200'>--/31°</div>
             </div>
             <div className='p-2 border-b border-gray-200 flex justify-between'>
                    <div className='m-2 border-b border-gray-200'><i className="fa-solid fa-wind "></i>
                                 <span className='pl-2'>Wind</span>
                    </div>
+              
                 <div className=' m-2 border-b border-gray-200'>--/31°</div>
             </div>
             <div className='p-2 border-b border-gray-200 flex justify-between'>
