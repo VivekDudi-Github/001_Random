@@ -1,7 +1,10 @@
 import react from "react"
 import { Navbar } from "../../index" 
+
+
 function Header () {
-       
+    let unixTimestamp = Math.floor(Date.now() / 1000);
+    console.log(unixTimestamp);       
 
     return(
     <>
@@ -34,7 +37,6 @@ function Header () {
                      <i className="fa-solid fa-list text-white text-2xl ml-2" ></i>
                 </div>
                 
-               
             </div>
 
 
