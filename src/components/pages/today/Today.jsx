@@ -5,13 +5,13 @@ import {Container , MainCard ,ForecastCard , MiscCards} from '../../../index'
 function Today() {
   return (
     <Container>
-        <div className=' w-3/5 m-5 bg-transparent'>
+        <div className=' w-full md:m-5  bg-transparent'>
             <MainCard/>
             <ForecastCard/>
             <MiscCards/>
         </div>
-        <div className=' m-5 bg-white'>
-            ABC
+        <div className=' hidden md:block m-5 bg-white'>
+          Advertisments  
         </div>
     </Container>
   )

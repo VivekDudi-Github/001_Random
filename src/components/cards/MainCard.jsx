@@ -8,15 +8,15 @@ function MainCard() {
             <p className= 'font-sans font-normal text-xs'>As of 12:35 IST</p>
         </div>
 
-        <div className='p-4 bg-gradient-to-b from-purple-200 to-purple-900 '>
+        <div className='p-4 bg-gradient-to-b from-purple-200 to-purple-900 duration-200'>
             <div className='w-full  flex flex-row justify-between'>
                 <div className='flex flex-col'>
-                    <p className=' text-6xl'>42°</p>
-                    <p>Widesprea Dust</p>
+                    <p className='  text-6xl md:text-8xl'>42°</p>
+                    <p className=' md:text-3xl'>Widespread Dust</p>
                 </div>
            
             <div>
-                 <i  className="fa-solid  fa-smog text-4xl m-3"></i>
+                 <i  className="fa-solid duration-200 fa-smog text-6xl md:text-8xl m-3"></i>
             </div>
             </div>
             <div className=' text-left '> Day 43° • Night 32°</div>
