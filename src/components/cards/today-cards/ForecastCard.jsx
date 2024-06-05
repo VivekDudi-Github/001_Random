@@ -11,11 +11,11 @@ function ForecastCard() {
             </div>
             <div className='flex justify-around border-b-2 items-center  border-gray-200'> <p className='w-1/5'> AfterNoon  </p> 
                  <p className='text-center'> 41° </p>
-                 <i class="fa-solid fa-sun  text-4xl m-3 inline-block "></i>
+                 <i className="fa-solid fa-sun  text-4xl m-3 inline-block "></i>
             </div>
             <div className='flex justify-around border-b-2 items-center  border-gray-200'> <p className='w-1/5' > Evening  </p>
                 <p className='text-center'> 36° </p>
-                <i class="fa-solid fa-cloud-sun text-4xl m-3 inline-block"></i>
+                <i className="fa-solid fa-cloud-sun text-4xl m-3 inline-block"></i>
             </div>
             <div className='flex justify-around border-b-2  items-center border-gray-200'> <p className='w-1/5 '> Overnight  </p>
                  <p className='text-center'> 32° </p>

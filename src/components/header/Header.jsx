@@ -3,8 +3,8 @@ import { Navbar } from "../../index"
 
 
 function Header () {
-    let unixTimestamp = Math.floor(Date.now() / 1000);
-    console.log(unixTimestamp);       
+    // let unixTimestamp = Math.floor(Date.now() / 1000);
+    // console.log(unixTimestamp);       
 
     return(
     <>
