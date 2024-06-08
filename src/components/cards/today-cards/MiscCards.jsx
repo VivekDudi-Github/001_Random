@@ -13,7 +13,7 @@ function MiscCards() {
                 </div>
                 <div className='p-3 ml-5 ' >
                     <p className='text-right text-ms'>Sunrise-Sunset</p>
-                    <p className='text-4xl font-bold'>05:22 - 19:16</p>
+                    <p className='text-4xl text-right font-bold'>05:22 - 19:16</p>
                 </div>
          </div>
        

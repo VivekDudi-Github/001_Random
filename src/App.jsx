@@ -1,7 +1,6 @@
 import react  from 'react'
 import {Header} from "./index" 
-import {Footer}  from "./index"
-import Today from './components/pages/today/Today'
+import {Footer , Today}  from "./index"
 
 function App() {
 
@@ -10,6 +9,7 @@ function App() {
    <Header/>
     <Today/>
    <Footer/>
+
   </>
   )}
 
