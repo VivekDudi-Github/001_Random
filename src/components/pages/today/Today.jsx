@@ -17,7 +17,7 @@ function Today() {
           Advertisments  
         </div>
     </Container>
-   {/* <div className=' bg-black h-screen fixed z-10 w-full'> Abc</div> */}
+   
   </>
   )
 }
