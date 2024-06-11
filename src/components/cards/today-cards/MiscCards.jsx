@@ -45,7 +45,6 @@ function MiscCards() {
                 <div className=' m-2 '>16°</div>
             </div>
 
-
             <div className='p-2 border-b border-gray-200 flex justify-between md:w-1/2'>
                     <div className='m-2'><i className="fa-solid fa-arrows-to-circle "></i>
                                 <span className='pl-2'>Pressure</span>

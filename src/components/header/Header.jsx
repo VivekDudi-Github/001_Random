@@ -1,10 +1,31 @@
-import react from "react"
+import React , {useState , useEffect} from "react"
 import { Navbar } from "../../index" 
+import ApiCall from "../../Api's"
 
 
 function Header () {
     // let unixTimestamp = Math.floor(Date.now() / 1000);
-    // console.log(unixTimestamp);       
+    // console.log(unixTimestamp); 
+    
+    const [Location , setLocation ] = useState ("")
+    const days = "7" ; 
+    
+    const [ isSearch , setSearch] = useState(false)
+
+    useEffect(()=> {
+        if (isSearch){
+        ApiCall.ForcastApi(Location , days
+        ).then((response) => {
+            if(response){
+                const data = response.json()
+                console.log(data)
+            }else {
+                console.log("no data fetched");
+            }})
+        } 
+        
+        setSearch(false)
+    } , [isSearch])
 
     return(
     <>
@@ -23,10 +44,15 @@ function Header () {
               </div>
               
                <span className="w-1/2 m-3 flex-nowrap flex   ">
-                      <input type="text" className="bg-cyan-700 rounded-2xl focus:outline-none pr-8 min-w-20 w-3/4 focus:outline-white   placeholder-white text-left font-sans text-sm h-8  text-white p-2" placeholder="Search City or Pincode"/>
-                      <i className="fa-solid fa-magnifying-glass text-white Class	
-                       font-bold relative right-7 top-2
-                       "></i>
+                      <input
+                    type="text" 
+                    onChange = { e => {setLocation(e.target.value) } }
+                    className="bg-cyan-700 rounded-2xl focus:outline-none pr-8 min-w-20 w-3/4 focus:outline-white   placeholder-white text-left font-sans text-sm h-8  text-white p-2" 
+                    placeholder="Search City or Pincode"/>
+
+                    <button onClick={()=> {setSearch(true)}} className="fa-solid fa-magnifying-glass text-white 	
+                       font-bold relative right-7 hover:border-white
+                       "></button>
                        </span>
 
                 <div className="m-3 flex justify-around w-20 items-center">
@@ -34,13 +60,10 @@ function Header () {
                      <p className="text-white ml-2"> | </p>
                      <p className="text-white ml-2 "> °C </p>
                      
-                    
-                     
                      <i className="fa-solid fa-list text-white text-2xl ml-2" ></i>
                 </div>
                 
             </div>
-
 
             <div className=" h-1/2 bg-sky-700 flex items-center"
             >
@@ -48,7 +71,7 @@ function Header () {
             </div>
         </header>
     </>
-    
+
 )
 }
 
