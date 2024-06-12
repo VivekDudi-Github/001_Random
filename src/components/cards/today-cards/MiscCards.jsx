@@ -1,6 +1,13 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+
 
 function MiscCards() {
+    const status = useSelector ( state => state.weather.status)
+    const weatherData = useSelector (state => state.weather.weatherData)
+    console.log(status , weatherData)
+
+
   return (
     <div className='bg-white  rounded-md shadow-md shadow-gray-600 p-3flex float-endex-col '>
        

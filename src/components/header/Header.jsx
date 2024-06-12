@@ -1,31 +1,36 @@
 import React , {useState , useEffect} from "react"
+import { useDispatch } from "react-redux";
+import {ForcastData} from "../../store/WeatherSlice"
+
 import { Navbar } from "../../index" 
-import ApiCall from "../../Api's"
+import ApiCall from "../../Api's" 
 
 
 function Header () {
-    // let unixTimestamp = Math.floor(Date.now() / 1000);
-    // console.log(unixTimestamp); 
     
     const [Location , setLocation ] = useState ("")
     const days = "7" ; 
-    
-    const [ isSearch , setSearch] = useState(false)
 
-    useEffect(()=> {
-        if (isSearch){
-        ApiCall.ForcastApi(Location , days
-        ).then((response) => {
-            if(response){
-                const data = response.json()
-                console.log(data)
-            }else {
-                console.log("no data fetched");
-            }})
-        } 
-        
-        setSearch(false)
-    } , [isSearch])
+    const dispatch = useDispatch()
+
+   
+const search = async () => {
+    try {
+      const response = await ApiCall.ForcastApi(Location, days);
+      const data = await response.json();
+  
+      if (data) {
+        dispatch(ForcastData(data));
+        console.log(data);
+      } else {
+        console.log("No data found");
+      }
+    } catch (error) {
+      console.error("Error fetching weather data:", error);
+
+    }
+  };
+
 
     return(
     <>
@@ -50,7 +55,7 @@ function Header () {
                     className="bg-cyan-700 rounded-2xl focus:outline-none pr-8 min-w-20 w-3/4 focus:outline-white   placeholder-white text-left font-sans text-sm h-8  text-white p-2" 
                     placeholder="Search City or Pincode"/>
 
-                    <button onClick={()=> {setSearch(true)}} className="fa-solid fa-magnifying-glass text-white 	
+                    <button onClick={()=> {search()}} className="fa-solid fa-magnifying-glass text-white 	
                        font-bold relative right-7 hover:border-white
                        "></button>
                        </span>
