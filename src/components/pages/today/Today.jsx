@@ -1,6 +1,6 @@
 import React from 'react'
 import {Container , MainCard ,ForecastCard , MiscCards} from '../../../index'
-import HoursCard from '../../cards/today-cards/DailyForcast'
+import HoursCard from '../../cards/today-cards/DailyForcastCard'
 
 
 function Today() {

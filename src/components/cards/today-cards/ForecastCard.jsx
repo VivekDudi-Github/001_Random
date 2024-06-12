@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useSelector} from 'react-redux'
 
 function ForecastCard() {
@@ -9,16 +9,16 @@ function ForecastCard() {
      const currentDay = status ? weatherData.forecast.forecastday[0] : "NA" ;
 
 
-      const [item , setitems] = useState([
-        { "timeOfDay": "Morning", "temperature": "38°", "icon": "fa-smog" },
-        { "timeOfDay": "Afternoon", "temperature": "41°", "icon": "fa-sun" },
-        { "timeOfDay": "Evening", "temperature": "36°", "icon": "fa-cloud-sun" },
-        { "timeOfDay": "Overnight", "temperature": "32°", "icon": "fa-moon" }
-      ] )
+      const item  =[
+        { "timeOfDay": "Morning", "temperature": status ? `${currentDay.hour[5].temp_c}°` : "NA", "icon": "fa-smog" },
+        { "timeOfDay": "Afternoon", "temperature": status ? `${currentDay.hour[15].temp_c}°` : "NA", "icon": "fa-sun" },
+        { "timeOfDay": "Evening", "temperature":status ?  `${currentDay.hour[19].temp_c}°` : "NA" , "icon": "fa-cloud-sun" },
+        { "timeOfDay": "Overnight", "temperature":status ?  `${currentDay.hour[23].temp_c}°` : "NA" , "icon": "fa-moon" }
+      ] 
 
   return (
     <div className=' bg-white mt-3 mb-3 rounded-md p-3  shadow-md shadow-gray-600'>
-        <div className='font-medium text-xl mb-2'>Today's Forecast for Block N, Haryana  </div>
+        <div className='font-medium text-xl mb-2'>Today's Forecast for {status ? `${weatherData.location.name}, ${weatherData.location.region}` : "Please Search"}  </div>
             
                     { item.map((entry ,index) => {
                         return(
