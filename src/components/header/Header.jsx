@@ -55,8 +55,9 @@ const search = async () => {
                     className="bg-cyan-700 rounded-2xl focus:outline-none pr-8 min-w-20 w-3/4 focus:outline-white   placeholder-white text-left font-sans text-sm h-8  text-white p-2" 
                     placeholder="Search City or Pincode"/>
 
-                    <button onClick={()=> {search()}} className="fa-solid fa-magnifying-glass text-white 	
-                       font-bold relative right-7 hover:border-white
+                 <button onClick={()=> {search()}} className="fa-solid fa-magnifying-glass text-white
+                       border border-1 border-transparent rounded px-2 pr-3 rounded-r-2xl
+                       font-bold relative right-9 hover:border-white active:border-black duration-200
                        "></button>
                        </span>
 
