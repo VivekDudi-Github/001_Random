@@ -18,14 +18,20 @@ function HoursCard() {
     }
   }
 
-  const data = weatherData.forecast.forecastday
+  const data = status? weatherData.forecast.forecastday : null ;
 
-  const divs = [
+  const divs = status? [
         { day: 'Today',  Max: `${data[0].day.maxtemp_c}°` , min: `${data[0].day.mintemp_c}°`, icon: 'fa-smog' },
         { day: `${dayNames[index(weekday + 1)]}`, Max: `${data[1].day.maxtemp_c}°`, min: `${data[1].day.mintemp_c}°`, icon: 'fa-sun' },
         { day: `${dayNames[index(weekday + 2)]}`, Max: `${data[2].day.maxtemp_c}°`, min: `${data[2].day.mintemp_c}°`, icon: 'fa-cloud-sun'},
         { day: `${dayNames[index(weekday + 3)]}`, Max: `${data[3].day.maxtemp_c}°`, min: `${data[3].day.mintemp_c}°`, icon: 'fa-moon' },
         { day: `${dayNames[index(weekday + 4)]}`, Max: `${data[4].day.maxtemp_c}°`, min: `${data[4].day.mintemp_c}°`, icon: 'fa-moon' }
+      ] : [
+        { day: 'Today',  Max: `NA°` , min: `NA°`, icon: 'fa-smog' },
+        { day: "NA", Max: `NA°`, min: `NA°`, icon: 'fa-sun' },
+        { day: "NA", Max: `NA°`, min: `NA°`, icon: 'fa-cloud-sun'},
+        { day: "NA", Max: `NA°`, min: `NA°`, icon: 'fa-moon' },
+        { day: `NA`, Max: `NA°`, min: `NA°`, icon: 'fa-moon' }
       ]
 
   return (
