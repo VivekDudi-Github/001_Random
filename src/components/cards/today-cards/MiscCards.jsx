@@ -9,7 +9,7 @@ function MiscCards() {
     const current_Data = status ? weatherData.current : null ;
 
     const misc = status ? [ 
-        { icon: 'fa-solid fa-temperature-half', label: 'High/Low', value: `--/31° ` },
+        { icon: 'fa-solid fa-temperature-half', label: 'High/Low', value: `${weatherData.forecast.forecastday[0].day.maxtemp_c}°/${weatherData.forecast.forecastday[0].day.mintemp_c}°`},
         { icon: 'fa-solid fa-wind', label: 'Wind', value: `${current_Data.wind_kph}km/h-${current_Data.wind_dir}` },
         { icon: 'fa-solid fa-droplet', label: 'Humidity', value: `${current_Data.humidity}%` },
         { icon: 'fa-solid fa-droplet', label: 'Dew Point', value: `${current_Data.dewpoint_c}` },
@@ -41,7 +41,7 @@ function MiscCards() {
         <div className=' w-full bg-green-100 flex p-3 justify-between'>
                 <div className='p-3 ml-5 ' >
                     <p>Feels Like</p>
-                    <p className='text-5xl font-medium '>{ status? `${weatherData.current.feelslike_c}` : `NA`}</p>
+                    <p className='text-5xl font-medium '><b>{ status? `${weatherData.current.feelslike_c}°` : `NA`}</b></p>
                 </div>
                 <div className='p-3 ml-5 ' >
                     <p className='text-right text-ms'>Sunrise-Sunset</p>

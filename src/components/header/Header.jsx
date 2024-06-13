@@ -56,7 +56,7 @@ const search = async () => {
                     placeholder="Search City or Pincode"/>
 
                  <button onClick={()=> {search()}} className="fa-solid fa-magnifying-glass text-white
-                       border border-1 border-transparent rounded px-2 pr-3 rounded-r-2xl
+                       border border-1 border-transparent rounded pl-2 pr-3 rounded-r-2xl rounded-l-none
                        font-bold relative right-9 hover:border-white active:border-black duration-200
                        "></button>
                        </span>

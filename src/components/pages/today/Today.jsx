@@ -1,7 +1,7 @@
 import React from 'react'
 import {Container , MainCard ,ForecastCard , MiscCards} from '../../../index'
-import HoursCard from '../../cards/today-cards/DailyForcastCard'
-
+import DailyForecastCard from '../../cards/today-cards/DailyForcastCard'
+import HoursCard from '../../cards/today-cards/HourlyCard'
 
 function Today() {
   return (
@@ -12,8 +12,9 @@ function Today() {
             <ForecastCard/>
             <MiscCards/>   
             <HoursCard/>
+            <DailyForecastCard/>
         </div>
-        <div className=' hidden md:block m-5 w-1/3 bg-white'>
+        <div className=' hidden sm:block m-5 w-1/3 bg-white'>
           Advertisments  
         </div>
     </Container>
