@@ -6,46 +6,48 @@ function HoursCard() {
   const weatherData = useSelector (state => state.weather.weatherData)
  
   const today= new Date()
-  const weekday = today.getDay()
+  const hour = today.getHours()
 
-  const dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
- 
-  const index = (index) => {
-    if(index >= dayNames.length ){
-      return index % 7
-    }else {
-      return index
+  
+  const data = status? weatherData.forecast.forecastday[0] : null ;
+  
+    //  console.log(data.hour[hour+1].time.slice( 10  ));
+    const index = (index)=> {
+            if (index >= data.hour.length){
+                return index % 24 
+            }else {
+                return index
+            }
     }
-  }
 
-  const data = status? weatherData.forecast.forecastday : null ;
 
   const divs = status? [
-        { Hour: 'Today',  Max: `${data[0].day.maxtemp_c}°` , min: `${data[0].day.mintemp_c}°`, icon: `${data[0].day.condition.icon}` },
-        { Hour: `${dayNames[index(weekday + 1)]}`, Max: `${data[1].day.maxtemp_c}°`, min: `${data[1].day.mintemp_c}°`, icon: `${data[1].day.condition.icon}` },
-        { Hour: `${dayNames[index(weekday + 2)]}`, Max: `${data[2].day.maxtemp_c}°`, min: `${data[2].day.mintemp_c}°`, icon: `${data[2].day.condition.icon}`},
-        { Hour: `${dayNames[index(weekday + 3)]}`, Max: `${data[3].day.maxtemp_c}°`, min: `${data[3].day.mintemp_c}°`, icon: `${data[3].day.condition.icon}` },
-        { Hour: `${dayNames[index(weekday + 4)]}`, Max: `${data[4].day.maxtemp_c}°`, min: `${data[4].day.mintemp_c}°`, icon: `${data[4].day.condition.icon}` }
+        { Hour: 'Now' , min: `${data.hour[hour].temp_c}°`, icon: `${data.hour[hour].condition.icon}` },
+        { Hour: `${data.hour[index(hour+1)].time.slice(10)}` , min: `${data.hour[index(hour+1)].temp_c}°`, icon: `${data.hour[index(hour+1)].condition.icon}` },
+        { Hour: `${data.hour[index(hour+2)].time.slice(10)}` , min: `${data.hour[index(hour+2)].temp_c}°`, icon: `${data.hour[index(hour+2)].condition.icon}` },
+        { Hour: `${data.hour[index(hour+3)].time.slice(10)}` , min: `${data.hour[index(hour+3)].temp_c}°`, icon: `${data.hour[index(hour+3)].condition.icon}` },
+        { Hour: `${data.hour[index(hour+4)].time.slice(10)}` , min: `${data.hour[index(hour+4)].temp_c}°`, icon: `${data.hour[index(hour+4)].condition.icon}` },
+        
+        
       ] : [
-        { Hour: 'Today',  Max: `NA°` , min: `NA°`, icon: 'fa-smog' },
-        { Hour: "NA", Max: `NA°`, min: `NA°`, icon: 'fa-sun' },
-        { Hour: "NA", Max: `NA°`, min: `NA°`, icon: 'fa-cloud-sun'},
-        { Hour: "NA", Max: `NA°`, min: `NA°`, icon: 'fa-moon' },
-        { Hour: `NA`, Max: `NA°`, min: `NA°`, icon: 'fa-moon' }
+        { Hour: 'Now',   min: `NA°`, icon: 'fa-smog' },
+        { Hour: "NA", min: `NA°`, icon: 'fa-sun' },
+        { Hour: "NA", min: `NA°`, icon: 'fa-cloud-sun'},
+        { Hour: "NA", min: `NA°`, icon: 'fa-moon' },
+        { Hour: `NA`, min: `NA°`, icon: 'fa-moon' }
       ]
 
   return (
     <div className=' bg-white mt-3 mb-3 rounded-md p-3  shadow-md shadow-gray-600'>
-        <div className='font-medium text-xl mb-2'>Daily Forecast</div>
+        <div className='font-medium text-xl mb-2'>Hourly Forecast</div>
 
                     {  divs.map((entry , index) => { 
                         return (
                         <div key={index} className='flex justify-around border-b-2 text-xl items-center border-gray-100'>
-                             <p className='w-1/5  text-left'>{entry.Hour}</p>
-                        <span className='w-1/5 font-medium text-center text-blue-500'>{entry.Max}
-                        <span className='w-1/5 text-center text-sm text-blue-500'>/{entry.min}</span>
+                             <p className='w-1/5 text-lg md:text-2xl text-left'>{entry.Hour}</p>
+                        <span className='w-1/5 font-medium text-center text-blue-500'>{entry.min}
                         </span>
-                        <img className={` md:m-2 m-1 md:h-16 h-10 text-center inline-block`} src={`${entry.icon}` }></img>
+                        <img className={` duration-200 md:m-2 m-1 md:h-16 h-10 text-center inline-block`} src={`${entry.icon}` }></img>
                             </div>
                     )}
                     )}

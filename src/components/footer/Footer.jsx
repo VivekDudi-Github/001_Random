@@ -5,8 +5,9 @@ return(
 <>
     <div className="  bg-white mt-10 ">
         <div className="flex m-5 flex-wrap flex-col ">
+
             <div className=" flex flex-row flex-wrap  justify-around mt-9"> 
-              <div className="font-bold font-sans text-xl flex flex-wrap mb-3 "> <p> Connect with us </p> </div> 
+              <div className="font-bold font-sans text-xl flex flex-wrap mb-7 "> <p> Connect with us </p> </div> 
                 <span className="ml-2 mb-2 ">
                 <span className="m-1 bg-blue-200 p-2 rounded-l hover:bg-blue-500 hover:text-white duration-200"><i className="fa-brands fa-youtube text-xl"></i></span>
                 <span className="m-1 bg-blue-200 p-2 rounded-l hover:bg-blue-500 hover:text-white duration-200"> <i className="fa-brands fa-instagram text-xl "></i></span>

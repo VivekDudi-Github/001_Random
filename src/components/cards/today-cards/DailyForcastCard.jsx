@@ -41,11 +41,11 @@ function DailyForcastCard() {
                     {  divs.map((entry , index) => { 
                         return (
                         <div key={index} className='flex justify-around border-b-2 text-xl items-center border-gray-100'>
-                             <p className='w-1/5  text-left'>{entry.day}</p>
+                             <p className='w-1/5 text-lg md:text-2xl text-left'>{entry.day}</p>
                         <span className='w-1/5 font-medium text-center text-blue-500'>{entry.Max}
                         <span className='w-1/5 text-center text-sm text-blue-500'>/{entry.min}</span>
                         </span>
-                        <img className={` md:m-2 m-1 md:h-16 h-10 text-center inline-block`} src={`${entry.icon}` }></img>
+                        <img className={` duration-200 md:m-2 m-1 md:h-16 h-10 text-center inline-block`} src={`${entry.icon}` }></img>
                             </div>
                     )}
                     )}

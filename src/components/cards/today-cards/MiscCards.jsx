@@ -51,6 +51,8 @@ function MiscCards() {
 
 
          <div className='mt-2 flex md:flex-row md:flex-wrap flex-col flex-wrap p-5 duration-500'>
+       
+{/* loop */}
          {misc.map((item) => (
         <div key={item.label} className="p-2 border-b border-gray-200 flex justify-between md:w-1/2">
           <div className="m-2">
@@ -60,6 +62,8 @@ function MiscCards() {
           <div className="m-2">{item.value}</div>
         </div>
       ))}
+
+
     </div>
 
     </div>
