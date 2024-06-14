@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom' ;
 function Footer () {
-  
+
 return(
 <>
     <div className="  bg-white mt-10 ">
@@ -11,7 +11,7 @@ return(
               <div className="font-bold font-sans text-xl flex flex-wrap mb-7 "> <p> Connect with us </p> </div> 
                 <span className="ml-2 mb-2 ">
                 <span className="m-1 bg-blue-200 p-2 rounded-l hover:bg-blue-500 hover:text-white duration-200"><i className="fa-brands fa-youtube text-xl"></i></span>
-                <span className="m-1 bg-blue-200 p-2 rounded-l hover:bg-blue-500 hover:text-white duration-200"> <i className="fa-brands fa-instagram text-xl "></i></span>
+                <span className="m-1 bg-blue-200 p-2 rounded-l hover:bg-blue-500 hover:text-white duration-200"><i className="fa-brands fa-instagram text-xl "></i></span>
             
                 <span className="m-1 bg-blue-200 p-2 rounded-l hover:bg-blue-500 hover:text-white duration-200"><i className="fa-brands fa-facebook text-xl"></i></span>
                 <span className="m-1 bg-blue-200 p-2 rounded-l hover:bg-blue-500 hover:text-white duration-200"><i className="fa-brands fa-x-twitter text-xl"></i></span>

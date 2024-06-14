@@ -5,7 +5,7 @@ function Container({children}) {
   return (
     <>
 
-  <div className=' w-full p-4 bg-fixed mb-4 
+  <div className=' w-full p-4 bg-fixed mb-4 duration-200 
    bg-gradient-to-b from-sky-700 to-white 
      '>
       <div><img className="m-auto " src='https://tpc.googlesyndication.com/simgad/8419533411674054302?'/></div>
