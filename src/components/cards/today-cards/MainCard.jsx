@@ -10,6 +10,7 @@ function MainCard() {
     const unslice_lastUpdated = status ? weatherData.current.last_updated : null  ;
     const lastUpdated = status ? unslice_lastUpdated.slice(unslice_lastUpdated.indexOf(' ')+1 ) : null ;
 
+    const Temp = ".temp_c"
 
     return (
     <div className=' duration-200  flex flex-col rounded-md bg-white overflow-hidden text-white font-bold shadow-md shadow-gray-600 transition-property-height'>

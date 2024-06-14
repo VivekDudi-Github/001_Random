@@ -34,9 +34,9 @@ const search = async () => {
 
     return(
     <>
-        <header className=" w-full h-44 flex-col flex pb-3 bg-sky-700 ">
+        <header className=" w-full h-44 flex-col flex pb-3 bg-sky-700 mb-">
            
-            <div className=" h-1/2 flex justify-between items-center pl-10 pr-10 bg-sky-900 ">
+            <div className=" h-1/2 flex justify-around items-center pl-10 pr-10 bg-sky-800 ">
 
               <div className="flex justify-between w-40 m-3">
                  <span className="h-14 w-14">
@@ -48,12 +48,14 @@ const search = async () => {
                     </span>
               </div>
               
-               <span className="w-1/2 m-3 flex-nowrap flex   ">
+               <span className="w-1/2 flex-nowrap flex   ">
                       <input
                     type="text" 
                     onChange = { e => {setLocation(e.target.value) } }
                     className="bg-cyan-700 rounded-2xl focus:outline-none pr-8 min-w-20 w-3/4 focus:outline-white   placeholder-white text-left font-sans text-sm h-8  text-white p-2" 
-                    placeholder="Search City or Pincode"/>
+                    placeholder="Search City or Pincode"
+                    onKeyDown={ (event) => {event.key === "Enter" ? search() : null }}
+                    />
 
                  <button onClick={()=> {search()}} className="fa-solid fa-magnifying-glass text-white
                        border border-1 border-transparent rounded pl-2 pr-3 rounded-r-2xl rounded-l-none
@@ -64,7 +66,8 @@ const search = async () => {
                 <div className="m-3 flex justify-around w-20 items-center">
                      <i className="fa-solid text-white fa-map-location-dot ml-2"></i>
                      <p className="text-white ml-2"> | </p>
-                     <p className="text-white ml-2 "> °C </p>
+                     <span  className="text-white ml-2 "> °C </span>
+                     <i className=" ml-1  fa-sharp text-2xl text-white fa-solid fa-caret-down"></i>
                      
                      <i className="fa-solid fa-list text-white text-2xl ml-2" ></i>
                 </div>

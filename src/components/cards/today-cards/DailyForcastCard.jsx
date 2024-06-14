@@ -50,7 +50,7 @@ function DailyForcastCard() {
                     )}
                     )}
 
-            <button className=' mt-1 rounded-full bg-blue-600 text-white hover:shadow-sm p-2'> Next 48 Hours</button>
+            <button className=' mt-1 rounded-full bg-blue-600 text-white hover:shadow-sm p-2'> Next 7 Days </button>
     </div>
   )
 }

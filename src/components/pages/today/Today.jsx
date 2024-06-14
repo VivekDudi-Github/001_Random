@@ -14,8 +14,11 @@ function Today() {
             <HoursCard/>
             <DailyForecastCard/>
         </div>
-        <div className=' hidden sm:block m-5 w-1/3 bg-white'>
-          Advertisments  
+        <div className=' hidden sm:block md:m-5 ml-3 md:w-1/2 w-4/5 bg-transparent'>
+          <img className='p-4 bg-white rounded-lg mb-4 ' src='https://tpc.googlesyndication.com/simgad/8415435527389080299?'/>
+          <img className='p-4 bg-white rounded-lg mb-4' src='https://tpc.googlesyndication.com/simgad/8755113534239921333?'/>
+          <img className='p-4 bg-white rounded-lg mb-4 ' src='https://tpc.googlesyndication.com/simgad/8415435527389080299?'/>
+          <img className='p-4 bg-white rounded-lg mb-4' src='https://tpc.googlesyndication.com/simgad/8755113534239921333?'/>
         </div>
     </Container>
    
