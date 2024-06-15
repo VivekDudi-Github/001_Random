@@ -19,9 +19,27 @@ function Hourly_div() {
     }
 
 
-    const hour = status ? weatherData.forecast.forecastday[0].hour : null
+    const hour_array = []
 
-    
+    for(let i = 0 ; i <3 ; i++ ){
+        if(status) 
+            hour_array.push( weatherData.forecast.forecastday[i].hour )
+    }
+
+
+    const days_of_week = [ "Sunday" , "Monday" , "Tuesday" , "Wednesday" , "Thursday" , "Friday" , "Saturday" ]
+
+    const day_date = (time) => {
+        let specific_date = new Date(time)
+      
+        let day_index = specific_date.getDay()
+        let day = days_of_week[day_index]
+
+        let date = specific_date.getDate()
+        const fullMonthName = specific_date.toLocaleString('default', { month: 'long' })
+
+        return `${day} ,${date} ${fullMonthName}  `
+    }
 
 
   return (
@@ -35,11 +53,16 @@ function Hourly_div() {
         </span>
             <span>As of {`${status? `${lastUpdated}`: "NA"}`} </span>
         </div>
-        <div className='font-bold pt-2 pb-2 text-xl border-b-2 border-gray-200'>Friday, 14 June</div>
+        
 
- { hour ?  hour.map((hour , index ) => 
-        <div className= {`hover:cursor-pointer border-b-2 border-gray-200 ` } key={index} >
+ { status ?  hour_array.map((entery) => entery.map((hour , index ) => 
+      
+      <div  key={index}>
+        {index === 0 &&   <div className='font-bold pt-2 pb-2 text-xl border-b-2 border-gray-200'>{`${ day_date(hour.time.slice(0 ,10))}`}</div> }
+    
+     <div className= {`hover:cursor-pointer border-b-2 border-gray-200 ` } >
         <div className={`  py-3 flex flex-wrap border-b-2 duration-300 hover:scale-105 border-black items-center justify-around ${is_open_1[index] ? "border-2 border-black" : "border-none" } ` } onClick={()=> display_div(index)}>
+            <p className='w-16 mr-1 font-bold'>{`${ hour.time.slice(5 , 10)}`}</p>
             <p className='w-12'>{`${ hour.time.slice(10)}`}</p>
             {/* <p className='w-36'>{`${hour.condition.text}`}</p> */}
             <p className='w-8'>{`${ status ? hour.temp_c : "NA "}`}</p>
@@ -48,6 +71,7 @@ function Hourly_div() {
             <i className='fa-solid fa-caret-down'></i>
 
         </div>
+
         <div className={` transition transform duration-200 ${is_open_1[index] ? " block " : " hidden "} ` } >
             <p className='font-bold my-2'>{`${hour.condition.text}`}</p> 
             <div className=' flex flex-wrap justify-around rounded-lg px-4  border-2 border-gray-200'>
@@ -98,8 +122,8 @@ function Hourly_div() {
             </div>
         </div>
 
-    </div>
-        ) : 
+    </div></div>
+        )) : 
         <div>Please Search a City First </div>
         }
         
