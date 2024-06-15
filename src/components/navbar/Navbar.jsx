@@ -6,7 +6,7 @@ function Navbar() {
     const array = [
       { text: "Today", navLink: "/" },
       { text: "Hourly", navLink: "/hourly" },
-      { text: "10 Day", navLink: "/10-day" }, 
+      { text: "10 Day", navLink: "/10_day" }, 
       { text: "Weekend", navLink: "/weekend" },
       { text: "Monthly", navLink: "/monthly" },
       { text: "Radar", navLink: "/radar" }

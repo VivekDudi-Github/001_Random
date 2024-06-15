@@ -9,13 +9,14 @@ import ApiCall from "../../Api's"
 function Header () {
     
     const [Location , setLocation ] = useState ("")
-    const days = "7" ; 
+    const days = "14" ; 
 
     const dispatch = useDispatch()
 
    
 const search = async () => {
     try {
+      if(Location){
       const response = await ApiCall.ForcastApi(Location, days);
       const data = await response.json();
   
@@ -25,6 +26,7 @@ const search = async () => {
       } else {
         console.log("No data found");
       }
+    }else {console.log("no location entered");}
     } catch (error) {
       console.error("Error fetching weather data:", error);
 
@@ -34,9 +36,9 @@ const search = async () => {
 
     return(
     <>
-        <header className=" w-full h-44 flex-col flex pb-3 bg-sky-700 mb-">
+        <header className=" w-full h-44 flex-col flex pb-3 bg-sky-700 ">
            
-            <div className=" h-1/2 flex justify-around items-center pl-10 pr-10 bg-sky-800 ">
+            <div className=" h-1/2 flex justify-around items-center px-5 md:px-10  bg-sky-800 ">
 
               <div className="flex justify-between w-40 m-3">
                  <span className="h-14 w-14">
@@ -48,11 +50,11 @@ const search = async () => {
                     </span>
               </div>
               
-               <span className="w-1/2 flex-nowrap flex   ">
+               <span className=" w-1/2 flex-nowrap flex justify-center  ">
                       <input
                     type="text" 
                     onChange = { e => {setLocation(e.target.value) } }
-                    className="bg-cyan-700 rounded-2xl focus:outline-none pr-8 min-w-20 w-3/4 focus:outline-white   placeholder-white text-left font-sans text-sm h-8  text-white p-2" 
+                    className="bg-cyan-700 rounded-3xl focus:outline-none pr-8 min-w-20 w-full max-w-96  focus:outline-white   placeholder-white text-center  font-sans text-base h-9  text-white p-2"  
                     placeholder="Search City or Pincode"
                     onKeyDown={ (event) => {event.key === "Enter" ? search() : null }}
                     />
@@ -63,11 +65,11 @@ const search = async () => {
                        "></button>
                        </span>
 
-                <div className="m-3 flex justify-around w-20 items-center">
-                     <i className="fa-solid text-white fa-map-location-dot ml-2"></i>
+                <div className=" flex justify-around w-22 items-center">
+                     <i className="fa-solid text-white text-xl fa-map-location-dot ml-2"></i>
                      <p className="text-white ml-2"> | </p>
-                     <span  className="text-white ml-2 "> °C </span>
-                     <i className=" ml-1  fa-sharp text-2xl text-white fa-solid fa-caret-down"></i>
+                     <span  className="text-white ml-2 text-xl "> °C </span>
+                     <i className=" mx-1  fa-sharp text-2xl text-white fa-solid fa-caret-down"></i>
                      
                      <i className="fa-solid fa-list text-white text-2xl ml-2" ></i>
                 </div>
