@@ -1,6 +1,6 @@
-import React , {useState , useEffect} from "react"
+import React , {useState } from "react"
 import { useDispatch } from "react-redux";
-import {ForcastData} from "../../store/WeatherSlice"
+import {ForcastData , Fetching_api_Load} from "../../store/WeatherSlice"
 
 import { Navbar } from "../../index" 
 import ApiCall from "../../Api's" 
@@ -17,6 +17,7 @@ function Header () {
 const search = async () => {
     try {
       if(Location){
+        dispatch(Fetching_api_Load())
       const response = await ApiCall.ForcastApi(Location, days);
       const data = await response.json();
   

@@ -62,7 +62,7 @@ function Hourly_div() {
      <div className= {`hover:cursor-pointer border-b-2 border-gray-200 ` } >
         <div className={`  py-3 flex flex-wrap border-b-2 duration-300 hover:scale-105 border-black items-center justify-around ${is_open_1[index] ? "border-2 border-black  " : "border-none" } ` } onClick={()=> display_div(index)}>
       
-            <p className='w-12'>{`${ hour.time.slice(10)}`}</p>
+            <p className='w-12'><b>{`${ hour.time.slice(10)}`}</b></p>
            
             <p className='w-8'>{`${ status ? hour.temp_c : "NA "}`}</p>
             <img className="fa-solid fa-cloud-sun w-8" src={`${hour.condition.icon}`}></img>
