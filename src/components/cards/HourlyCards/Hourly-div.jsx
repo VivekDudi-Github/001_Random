@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux'
 function Hourly_div() {
     const status = useSelector ( state => state.weather.status)
     const weatherData = useSelector (state => state.weather.weatherData)
-   
+    const Is_F= useSelector(state => state.weather.IsFarenheit)
 
     const unslice_lastUpdated = status ? weatherData.current.last_updated : null  ;
     const lastUpdated = status ? unslice_lastUpdated.slice(unslice_lastUpdated.indexOf(' ')+1 ) : null ;
@@ -64,7 +64,7 @@ function Hourly_div() {
       
             <p className='w-12'><b>{`${ hour.time.slice(10)}`}</b></p>
            
-            <p className='w-8'>{`${ status ? hour.temp_c : "NA "}`}</p>
+            <p className='w-8'>{`${ status ? `${Is_F ? hour.temp_f :hour.temp_c}°` : "NA "}`}</p>
             <img className="fa-solid fa-cloud-sun w-8" src={`${hour.condition.icon}`}></img>
             <i className="fa-solid fa-droplet w-16"> {` ${hour.chance_of_rain}%`}</i>
             <i className='fa-solid fa-caret-down'></i>
@@ -79,7 +79,7 @@ function Hourly_div() {
                     <i className='fa-solid fa-temperature-half text-xl'></i>
                     <span className='ml-2 flex flex-col items-start'>
                         <p className=' text-sm'>Feels Like </p> 
-                        <p className=' text-sm'><b>{hour.feelslike_c}°</b></p>
+                        <p className=' text-sm'><b>{`${Is_F ? hour.feelslike_f : hour.feelslike_c}`}°</b></p>
                     </span>
                 </div>
                 <div className='flex justify-start border-b-2 pt-2 items-start md:w-1/3 w-36 pb-2 '>

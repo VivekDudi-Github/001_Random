@@ -8,18 +8,18 @@ function Navbar() {
       { text: "Hourly", navLink: "/hourly" },
       { text: "10 Day", navLink: "/10_day" }, 
       { text: "Radar", navLink: "/radar" } ,
-      { text: "Weekend", navLink: "/radar" },
-      { text: "Monthly", navLink: "/hourly" },
+      // { text: "Weekend", navLink: "/radar" },
+      // { text: "Monthly", navLink: "/hourly" },
       
     ];
 
   return (
     <>
           <div className=" bg-cyan-950 w-full text-white flex flex-nowrap justify-around mt-10 ">
-                    <ul className=" ml-4 mr-1 w-2/3 flex justify-between flex-nowrap overflow-hidden " >
+                    <ul className=" ml-4 mr-1 w-2/3 flex justify-between flex-nowrap overflow-x-scroll scroll " >
                         {array.map((li) => {
                             return (
-                              <NavLink key={li.text} to={li.navLink} className={({isActive}) => ` flex-shrink-0 mr-5  border-b-2 ${isActive? "border-white" : " border-cyan-950 " } p-2 hover:border-white  hover:border-b-2` }>
+                              <NavLink key={li.text} to={li.navLink} className={({isActive}) => ` flex-shrink-0 mr-5   border-b-2 ${isActive? "border-white" : " border-cyan-950 " } p-2 hover:border-white  hover:border-b-2` }>
                               <li key={li.text} className=""  >{li.text}</li> 
                               </NavLink>)
                         })}

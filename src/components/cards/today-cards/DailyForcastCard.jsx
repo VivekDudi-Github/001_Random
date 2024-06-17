@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux'
 function DailyForcastCard() {
   const status = useSelector ( state => state.weather.status)
   const weatherData = useSelector (state => state.weather.weatherData)
- 
+  const Is_F= useSelector(state => state.weather.IsFarenheit)
+
   const today= new Date()
   const weekday = today.getDay()
 
@@ -21,9 +22,9 @@ function DailyForcastCard() {
   const data = status? weatherData.forecast.forecastday : null ;
 
   const divs = status? [
-        { day: 'Today',  Max: `${data[0].day.maxtemp_c}°` , min: `${data[0].day.mintemp_c}°`, icon: `${data[0].day.condition.icon}` },
-        { day: `${dayNames[index(weekday + 1)]}`, Max: `${data[1].day.maxtemp_c}°`, min: `${data[1].day.mintemp_c}°`, icon: `${data[1].day.condition.icon}` },
-        { day: `${dayNames[index(weekday + 2)]}`, Max: `${data[2].day.maxtemp_c}°`, min: `${data[2].day.mintemp_c}°`, icon: `${data[2].day.condition.icon}`},
+        { day: 'Today',  Max: `${Is_F ? data[0].day.maxtemp_f :data[0].day.maxtemp_c }°` , min: `${Is_F ? data[0].day.mintemp_f : data[0].day.mintemp_c}°`, icon: `${data[0].day.condition.icon}` },
+        { day: `${dayNames[index(weekday + 1)]}`, Max: `${Is_F ? data[1].day.maxtemp_f :data[1].day.maxtemp_c }°` , min: `${Is_F ? data[1].day.mintemp_f : data[1].day.mintemp_c}°`, icon: `${data[1].day.condition.icon}`},
+        { day: `${dayNames[index(weekday + 2)]}`, Max: `${Is_F ? data[2].day.maxtemp_f :data[2].day.maxtemp_c }°` , min: `${Is_F ? data[2].day.mintemp_f : data[2].day.mintemp_c}°`, icon: `${data[2].day.condition.icon}`},
         // { day: `${dayNames[index(weekday + 3)]}`, Max: `${data[3].day.maxtemp_c}°`, min: `${data[3].day.mintemp_c}°`, icon: `${data[3].day.condition.icon}` },
         // { day: `${dayNames[index(weekday + 4)]}`, Max: `${data[4].day.maxtemp_c}°`, min: `${data[4].day.mintemp_c}°`, icon: `${data[4].day.condition.icon}` }
       ] : [

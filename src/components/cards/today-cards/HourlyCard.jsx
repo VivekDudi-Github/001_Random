@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
 
 function HoursCard() {
   const status = useSelector ( state => state.weather.status)
   const weatherData = useSelector (state => state.weather.weatherData)
- 
+  const Is_F = useSelector(state => state.weather.IsFarenheit)
+
   const today= new Date()
   const hour = today.getHours()
 
   
-  const data = status? weatherData.forecast.forecastday[0] : null ;
   
-    //  console.log(data.hour[hour+1].time.slice( 10  ));
+  const data = status? weatherData.forecast.forecastday[0] : null ;
     const index = (index)=> {
             if (index >= data.hour.length){
                 return index % 24 
@@ -22,15 +23,15 @@ function HoursCard() {
 
 
   const divs = status? [
-        { Hour: 'Now' , min: `${data.hour[hour].temp_c}°`, icon: `${data.hour[hour].condition.icon}` },
-        { Hour: `${data.hour[index(hour+1)].time.slice(10)}` , min: `${data.hour[index(hour+1)].temp_c}°`, icon: `${data.hour[index(hour+1)].condition.icon}` },
-        { Hour: `${data.hour[index(hour+2)].time.slice(10)}` , min: `${data.hour[index(hour+2)].temp_c}°`, icon: `${data.hour[index(hour+2)].condition.icon}` },
-        { Hour: `${data.hour[index(hour+3)].time.slice(10)}` , min: `${data.hour[index(hour+3)].temp_c}°`, icon: `${data.hour[index(hour+3)].condition.icon}` },
-        { Hour: `${data.hour[index(hour+4)].time.slice(10)}` , min: `${data.hour[index(hour+4)].temp_c}°`, icon: `${data.hour[index(hour+4)].condition.icon}` },
+        { Hour: 'Now' , min: `${Is_F ? data.hour[hour].temp_f : data.hour[hour].temp_c}°`, icon: `${data.hour[hour].condition.icon}` },
+        { Hour: `${data.hour[index(hour+1)].time.slice(10)}` , min: `${ Is_F ? data.hour[index(hour+1)].temp_f : data.hour[index(hour+1)].temp_c}°`, icon: `${data.hour[index(hour+1)].condition.icon}` },
+        { Hour: `${data.hour[index(hour+2)].time.slice(10)}` , min: `${ Is_F ? data.hour[index(hour+2)].temp_f : data.hour[index(hour+1)].temp_c}°`, icon: `${data.hour[index(hour+2)].condition.icon}` },
+        { Hour: `${data.hour[index(hour+3)].time.slice(10)}` , min: `${ Is_F ? data.hour[index(hour+3)].temp_f : data.hour[index(hour+1)].temp_c}°`, icon: `${data.hour[index(hour+3)].condition.icon}` },
+        { Hour: `${data.hour[index(hour+4)].time.slice(10)}` , min: `${ Is_F ? data.hour[index(hour+4)].temp_f : data.hour[index(hour+1)].temp_c}°`, icon: `${data.hour[index(hour+4)].condition.icon}` },
         
         
       ] : [
-        { Hour: 'Now',   min: `NA°`, icon: 'fa-smog' },
+        { Hour: 'Now',min: `NA°`, icon: 'fa-smog' },
         { Hour: "NA", min: `NA°`, icon: 'fa-sun' },
         { Hour: "NA", min: `NA°`, icon: 'fa-cloud-sun'},
         { Hour: "NA", min: `NA°`, icon: 'fa-moon' },
@@ -52,7 +53,7 @@ function HoursCard() {
                     )}
                     )}
 
-            <button className=' mt-1 rounded-full bg-blue-600 text-white hover:shadow-sm p-2'> Next 48 Hours</button>
+           <NavLink to="/hourly"> <button className=' mt-1 rounded-full bg-blue-600 text-white hover:shadow-sm p-2'> Next 48 Hours</button></NavLink>
     </div>
   )
 }

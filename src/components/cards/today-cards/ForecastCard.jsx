@@ -4,16 +4,16 @@ import {useSelector} from 'react-redux'
 function ForecastCard() {
     const status = useSelector ( state => state.weather.status)
     const weatherData = useSelector (state => state.weather.weatherData)
-   
+    const Is_F= useSelector(state => state.weather.IsFarenheit)
 
      const currentDay = status ? weatherData.forecast.forecastday[0] : "NA" ;
 
 
       const item  =[
-        { "timeOfDay": "Morning", "temperature": status ? `${currentDay.hour[8].temp_c}°` : "NA", "icon": status? `${currentDay.hour[8].condition.icon}` : "NA" },
-        { "timeOfDay": "Afternoon", "temperature": status ? `${currentDay.hour[15].temp_c}°` : "NA", "icon": status? `${currentDay.hour[15].condition.icon}` : "NA" },
-        { "timeOfDay": "Evening", "temperature":status ?  `${currentDay.hour[19].temp_c}°` : "NA" , "icon": status? `${currentDay.hour[19].condition.icon}` : "NA" },
-        { "timeOfDay": "Overnight", "temperature":status ?  `${currentDay.hour[23].temp_c}°` : "NA" , "icon": status? `${currentDay.hour[23].condition.icon}` : "NA" }
+        { "timeOfDay": "Morning",   "temperature": status ? `${Is_F ? currentDay.hour[ 8].temp_f : currentDay.hour[ 8].temp_c}°` : "NA", "icon": status? `${currentDay.hour[8].condition.icon}` : "NA" },
+        { "timeOfDay": "Afternoon", "temperature": status ? `${Is_F ? currentDay.hour[15].temp_f : currentDay.hour[15].temp_c}°` : "NA", "icon": status? `${currentDay.hour[15].condition.icon}` : "NA" },
+        { "timeOfDay": "Evening",   "temperature": status ? `${Is_F ? currentDay.hour[19].temp_f : currentDay.hour[19].temp_c}°` : "NA" , "icon": status? `${currentDay.hour[19].condition.icon}` : "NA" },
+        { "timeOfDay": "Overnight", "temperature": status ? `${Is_F ? currentDay.hour[23].temp_f : currentDay.hour[23].temp_c}°` : "NA" , "icon": status? `${currentDay.hour[23].condition.icon}` : "NA" }
       ] 
 
   return (

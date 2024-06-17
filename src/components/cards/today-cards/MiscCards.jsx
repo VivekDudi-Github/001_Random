@@ -5,14 +5,16 @@ import { useSelector } from 'react-redux'
 function MiscCards() {
     const status = useSelector ( state => state.weather.status)
     const weatherData = useSelector (state => state.weather.weatherData)
-    
+    const Is_F= useSelector(state => state.weather.IsFarenheit)
+
     const current_Data = status ? weatherData.current : null ;
+    const min_max_temp = status ? weatherData.forecast.forecastday[0].day : null ;
 
     const misc = status ? [ 
-        { icon: 'fa-solid fa-temperature-half', label: 'High/Low', value: `${weatherData.forecast.forecastday[0].day.maxtemp_c}°/${weatherData.forecast.forecastday[0].day.mintemp_c}°`},
+        { icon: 'fa-solid fa-temperature-half', label: 'High/Low', value: `${ Is_F ? min_max_temp.maxtemp_f : min_max_temp.maxtemp_c }°/${ Is_F ? min_max_temp.mintemp_f : min_max_temp.mintemp_c }°`},
         { icon: 'fa-solid fa-wind', label: 'Wind', value: `${current_Data.wind_kph}km/h-${current_Data.wind_dir}` },
         { icon: 'fa-solid fa-droplet', label: 'Humidity', value: `${current_Data.humidity}%` },
-        { icon: 'fa-solid fa-droplet', label: 'Dew Point', value: `${current_Data.dewpoint_c}` },
+        { icon: 'fa-solid fa-droplet', label: 'Dew Point', value: `${Is_F ? current_Data.dewpoint_f :current_Data.dewpoint_c}°` },
         { icon: 'fa-solid fa-arrows-to-circle', label: 'Pressure', value: `${current_Data.pressure_mb} mb` },
         { icon: 'fa-solid fa-arrows-to-eye', label: 'UV Index', value: `${current_Data.uv}` },
         { icon: 'fa-solid fa-eye', label: 'Visiblity', value:`${current_Data.vis_km}` },
@@ -41,7 +43,7 @@ function MiscCards() {
         <div className=' w-full bg-green-100 flex p-3 justify-between'>
                 <div className='p-3 ml-5 ' >
                     <p>Feels Like</p>
-                    <p className='text-5xl font-medium '><b>{ status? `${weatherData.current.feelslike_c}°` : `NA`}</b></p>
+                    <p className='text-5xl font-medium '><b>{ status? `${ Is_F ? weatherData.current.feelslike_f : weatherData.current.feelslike_c }°` : `NA`}</b></p>
                 </div>
                 <div className='p-3 ml-5 ' >
                     <p className='text-right text-ms'>Sunrise-Sunset</p>

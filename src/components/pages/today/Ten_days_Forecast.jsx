@@ -21,7 +21,7 @@ function Ten_Days_Forecast() {
     <Container>
         <div className=' w-full md:m-1  bg-transparent'>
             <Ten_Days_Forecast_card/>
-            <h2 className='mt-2 text-center bg-white'>Api restricted for more than 3 Days call</h2>
+            <h2 className='mt-2 text-center bg-white'>Api restricted more calls</h2>
         </div>
         <div className=' hidden sm:block md:m-5 ml-3 md:w-1/2 w-4/5 bg-transparent'>
           <img className='p-4 bg-white rounded-lg mb-4 ' src='https://tpc.googlesyndication.com/simgad/8415435527389080299?'/>

@@ -2,8 +2,9 @@ import React , {useState} from 'react'
 import { useSelector } from 'react-redux'
 
 function Ten_Days_Forecast() {
-   const status = useSelector ( state => state.weather.status)
+    const status = useSelector ( state => state.weather.status)
     const weatherData = useSelector (state => state.weather.weatherData)
+    const Is_F= useSelector(state => state.weather.IsFarenheit)
 
     const all_forecast = status ? weatherData.forecast
     .forecastday : null
@@ -55,7 +56,7 @@ function Ten_Days_Forecast() {
            key={index}  onClick={()=> display_div(index)}
         >
             <p className=' mr-1 '>{(entry.date.slice(5))}</p>
-            <span className='w-10 '><b>{entry.day.maxtemp_c}°</b>/{entry.day.mintemp_c}°</span>
+            <span className='w-10 '><b>{Is_F ? entry.day.maxtemp_f : entry.day.maxtemp_c}°</b>/{Is_F ?  entry.day.mintemp_f : entry.day.mintemp_c}°</span>
                  
             <img className="fa-solid w-9 ml-2 " src={`${entry.day.condition.icon}`}></img>
             <i className="fa-solid fa-droplet w-5">{entry.day.daily_chance_of_rain
@@ -67,7 +68,7 @@ function Ten_Days_Forecast() {
             <div className='flex flex-col p-2 w-full lg:w-1/2 '>
                 <div className='text-left'>{entry.date.slice(5)} | Day</div>
                 <div className='flex justify-between '>
-                    <div className='font-bold text-5xl mx-1'>{entry.day.avgtemp_c}°
+                    <div className='font-bold text-5xl mx-1'>{Is_F ? entry.day.avgtemp_f :entry.day.avgtemp_c }°
                         <i className='fa-solid fa-cloud-sun text-4xl mx-1'></i>
                     </div>
                     <div className='  flex flex-col'>
@@ -80,7 +81,7 @@ function Ten_Days_Forecast() {
                     </div>
                 </div>
                 <div className=' my-2 '>
-                Desc.-{entry.day.condition.text}. High {entry.day.maxtemp_c}°C. Winds {entry.hour[12].wind_dir} at {entry.hour[8].wind_kph} to {entry.hour[16].wind_kph} km/h.
+                Forecast -{entry.day.condition.text}. High { Is_F ? entry.day.maxtemp_f : entry.day.maxtemp_c}°C. Winds {entry.hour[12].wind_dir} at {entry.hour[8].wind_kph} to {entry.hour[16].wind_kph} km/h.
                 </div>
 
                 <div className='border border-1 border-gray-300 rounded-lg p-2 flex flex-wrap justify-between'>
@@ -125,7 +126,7 @@ function Ten_Days_Forecast() {
             <div className='flex flex-col p-2 w-full lg:w-1/2 '>
                 <div className='text-left'>{entry.date.slice(5)} | Night</div>
                 <div className='flex justify-between '>
-                    <div className='font-bold text-5xl mx-1'>{entry.day.mintemp_c}°
+                    <div className='font-bold text-5xl mx-1'>{ Is_F ? entry.day.mintemp_f : entry.day.mintemp_c}°
                         <i className='fa-solid fa-cloud-moon text-4xl mx-1'></i>
                     </div>
                     <div className='  flex flex-col'>
@@ -138,7 +139,7 @@ function Ten_Days_Forecast() {
                     </div>
                 </div>
                 <div className=' my-2'>
-                    Desc.-{entry.hour[23].condition.text} . Low {entry.day.mintemp_c}°C. Winds {entry.hour[23].wind_dir} at {entry.hour[22].wind_kph} to {entry.hour[23].wind_kph} km/h.
+                    Forecast -{entry.hour[23].condition.text} . Low {Is_F ? entry.day.mintemp_f : entry.day.mintemp_c}°C. Winds {entry.hour[23].wind_dir} at {entry.hour[22].wind_kph} to {entry.hour[23].wind_kph} km/h.
                 </div>
 
                 <div className='border border-1 border-gray-300 rounded-lg p-2 flex flex-wrap justify-between'>
