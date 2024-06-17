@@ -1,6 +1,7 @@
 import React from "react"
 import config from "./conf"
 
+
 export class Api {
     async ForcastApi (location , days){
         try {

@@ -7,9 +7,10 @@ function Navbar() {
       { text: "Today", navLink: "/" },
       { text: "Hourly", navLink: "/hourly" },
       { text: "10 Day", navLink: "/10_day" }, 
-      { text: "Weekend", navLink: "/weekend" },
-      { text: "Monthly", navLink: "/monthly" },
-      { text: "Radar", navLink: "/radar" }
+      { text: "Radar", navLink: "/radar" } ,
+      { text: "Weekend", navLink: "/radar" },
+      { text: "Monthly", navLink: "/hourly" },
+      
     ];
 
   return (
