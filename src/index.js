@@ -20,6 +20,7 @@ import Ten_Days_Forecast_card from "./components/cards/10Days-Cards/10Days_Forec
 import Today from "./components/pages/today/Today" ;
 import Hourly from "./components/pages/today/Hourly";
 import Ten_Days_Forecast from "./components/pages/today/Ten_days_Forecast";
+import RadarPage from './components/pages/today/RadarPage' 
 
 export {
     Header , 
@@ -39,6 +40,7 @@ export {
 
     Today ,
     Hourly, 
-    Ten_Days_Forecast
+    Ten_Days_Forecast ,
+    RadarPage
 
 }

@@ -6,7 +6,7 @@ import {Provider} from 'react-redux'
 import Store from "./store/store.js"
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements , BrowserRouter } from 'react-router-dom'
 
-import {Today , Hourly , Ten_Days_Forecast} from "./index.js"
+import {Today , Hourly, RadarPage , Ten_Days_Forecast} from "./index.js"
 
 const rooter = createBrowserRouter(
   createRoutesFromElements(
@@ -14,6 +14,7 @@ const rooter = createBrowserRouter(
       <Route path="" element = {<Today/>}/>
       <Route path="/hourly" element={<Hourly/>}/>
       <Route path='/10_day' element={<Ten_Days_Forecast/>} />
+      <Route path='/radar'  element={<RadarPage/>} />
     </Route>
   )
 )

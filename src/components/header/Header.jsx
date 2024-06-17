@@ -21,7 +21,7 @@ const search = async () => {
       const response = await ApiCall.ForcastApi(Location, days);
       const data = await response.json();
   
-      if (data) {
+      if (data && !data.error) {
         dispatch(ForcastData(data));
         console.log(data);
       } else {

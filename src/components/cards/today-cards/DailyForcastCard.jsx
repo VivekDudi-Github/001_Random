@@ -24,14 +24,14 @@ function DailyForcastCard() {
         { day: 'Today',  Max: `${data[0].day.maxtemp_c}°` , min: `${data[0].day.mintemp_c}°`, icon: `${data[0].day.condition.icon}` },
         { day: `${dayNames[index(weekday + 1)]}`, Max: `${data[1].day.maxtemp_c}°`, min: `${data[1].day.mintemp_c}°`, icon: `${data[1].day.condition.icon}` },
         { day: `${dayNames[index(weekday + 2)]}`, Max: `${data[2].day.maxtemp_c}°`, min: `${data[2].day.mintemp_c}°`, icon: `${data[2].day.condition.icon}`},
-        { day: `${dayNames[index(weekday + 3)]}`, Max: `${data[3].day.maxtemp_c}°`, min: `${data[3].day.mintemp_c}°`, icon: `${data[3].day.condition.icon}` },
-        { day: `${dayNames[index(weekday + 4)]}`, Max: `${data[4].day.maxtemp_c}°`, min: `${data[4].day.mintemp_c}°`, icon: `${data[4].day.condition.icon}` }
+        // { day: `${dayNames[index(weekday + 3)]}`, Max: `${data[3].day.maxtemp_c}°`, min: `${data[3].day.mintemp_c}°`, icon: `${data[3].day.condition.icon}` },
+        // { day: `${dayNames[index(weekday + 4)]}`, Max: `${data[4].day.maxtemp_c}°`, min: `${data[4].day.mintemp_c}°`, icon: `${data[4].day.condition.icon}` }
       ] : [
         { day: 'Today',  Max: `NA°` , min: `NA°`, icon: 'fa-smog' },
         { day: "NA", Max: `NA°`, min: `NA°`, icon: 'fa-sun' },
         { day: "NA", Max: `NA°`, min: `NA°`, icon: 'fa-cloud-sun'},
-        { day: "NA", Max: `NA°`, min: `NA°`, icon: 'fa-moon' },
-        { day: `NA`, Max: `NA°`, min: `NA°`, icon: 'fa-moon' }
+        // { day: "NA", Max: `NA°`, min: `NA°`, icon: 'fa-moon' },
+        // { day: `NA`, Max: `NA°`, min: `NA°`, icon: 'fa-moon' }
       ]
 
   return (
