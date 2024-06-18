@@ -34,7 +34,7 @@ const weatherData = useSelector(state => state.weather.weatherData)
           />
           { <TileLayer
           attribution='&copy; <a href="https://openweathermap.org/">openWeather</a>'
-          url={`http://tile.openweathermap.org/map/${props.map_layer}/{z}/{x}/{y}.png?appid=${config.map_api_key}`}
+          url={`http://tile.openweathermap.org/map/${props.map_layer}/{z}/{x}/{y}.png?appid=1af76109d612fd815ba7710011adb5e2`}
           opacity={1}
           zIndex={10}
         />}
@@ -43,4 +43,4 @@ const weatherData = useSelector(state => state.weather.weatherData)
     );
   }
   
-  export default SimpleMap;
+  export default SimpleMap; 
