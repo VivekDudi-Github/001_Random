@@ -73,7 +73,9 @@ const search = async () => {
 {/* //After search Box */}
                 <div className=" flex justify-around w-22 items-center">
                   
-                    <NavLink to={"./radar"}> <i className="fa-solid text-white text-xl fa-map-location-dot ml-2 border-0 px-1 hover:border-2" ></i></NavLink>
+                    <NavLink to={"./radar"}> <i className="fa-solid text-white text-xl fa-map-location-dot ml-2 border-0 px-1 hover:border-2"   ></i>
+                    </NavLink>
+
                      <p className="text-white ml-2"> | </p>
 
                      <span  className= {`text-white ml-2 w-12 text-xl duration-200 border-0 hover:border-2 ${showdiv ? `-translate-y-0` : "" } `}

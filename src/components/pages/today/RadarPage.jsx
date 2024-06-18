@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import {Container} from "../../../index"
 import { useSelector } from 'react-redux'
 import SimpleMap from '../../radar/Map'
-import Map from "../../radar/Map_tiler"
 
 
 function RadarPage() {

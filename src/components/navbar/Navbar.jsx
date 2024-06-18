@@ -15,6 +15,9 @@ function Navbar() {
 
   return (
     <>
+    <div className='h-3'>
+      
+    </div>
           <div className=" bg-cyan-950 w-full text-white flex flex-nowrap justify-around mt-10 ">
                     <ul className=" ml-4 mr-1 w-2/3 flex justify-between flex-nowrap overflow-x-scroll scroll " >
                         {array.map((li) => {
