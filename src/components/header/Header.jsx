@@ -87,7 +87,7 @@ const search = async () => {
                      {showdiv && <div className="absolute top-20 pt-2"><Toggle_btn /> </div>} 
                      
 
-                     <i className="fa-solid fa-list text-white text-2xl ml-2" ></i>
+                     <i className="fa-solid fa-list hidden md:block text-white text-2xl ml-2" ></i>
                 </div>
                 
             </div>
