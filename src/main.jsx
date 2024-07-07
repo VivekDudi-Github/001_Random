@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import {Provider} from 'react-redux'
 import Store from "./store/store.js"
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements , BrowserRouter } from 'react-router-dom'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements  } from 'react-router-dom'
 
 import {Today , Hourly, RadarPage , Ten_Days_Forecast} from "./index.js"
 
@@ -18,6 +18,7 @@ const rooter = createBrowserRouter(
     </Route>
   )
 )
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
